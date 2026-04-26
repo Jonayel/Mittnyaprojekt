@@ -1,0 +1,22 @@
+import random 
+
+def gissa_tal():
+    computer_guess = random.randint(1,20)
+    
+    antal_försök = 0 
+
+    while True: 
+        guess = int(input("Gissa ett tal mellan 1 och 20: "))
+        antal_försök += 1
+        if guess > computer_guess:
+            print("För högt, försök igen!")
+        elif guess < computer_guess:
+            print("För lågt, försök igen!")
+        else: 
+            print("Grattis! Du gissade rätt på", antal_försök, "försök!")
+            break
+    
+gissa_tal()
+
+
+    
