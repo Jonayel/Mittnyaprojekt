@@ -1,22 +1,38 @@
+def datorns_nummer(): 
+    return random.randint(1, 20)
+
+def gissning(): 
+    gissning_av_människa = int(input("Gissa ett tal mellan 1 och 20: "))
+    return gissning_av_människa
+
+def controll(guess,computer_guess):
+    if guess > computer_guess:
+        print("För högt, försök igen!")
+        return False
+    elif guess < computer_guess:
+        print("För lågt, försök igen!")
+        return False
+    else: 
+        return True
+
+
+
+
+
+
+
+
 import random 
 
 def gissa_tal():
-    computer_guess = random.randint(1,20)
-    
+    computer_guess = datorns_nummer()
     antal_försök = 0 
-
+    
     while True: 
-        guess = int(input("Gissa ett tal mellan 1 och 20: "))
+        guess = gissning()
         antal_försök += 1
-        if guess > computer_guess:
-            print("För högt, försök igen!")
-        elif guess < computer_guess:
-            print("För lågt, försök igen!")
-        else: 
-            print("Grattis! Du gissade rätt på", antal_försök, "försök!")
+        if controll(guess, computer_guess):
+            print("Du klarade det på", antal_försök, "försök!")
             break
-    
+
 gissa_tal()
-
-
-    
